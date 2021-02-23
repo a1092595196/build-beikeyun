@@ -1,4 +1,4 @@
-DTB_HEADLESS := dtbs/4.4-bsp/headless/rk3328-beikeyun.dtb
+DTB_HEADLESS := dtbs/5.4-bsp/headless/rk3328-beikeyun-1296mhz.dtb
 DTB_BOX := dtbs/4.4-bsp/box/rk3328-beikeyun.dtb
 
 DL := input
@@ -19,12 +19,13 @@ build: $(TARGETS)
 clean: $(TARGETS:%=%_clean)
 	rm -f $(OUTPUT)/*.img $(OUTPUT)/*.xz
 
-ARMBIAN_PKG_UBUNTU := Armbian_5.90_Rock64_Ubuntu_bionic_default_4.4.182.7z
-ARMBIAN_PKG_DEBIAN := Armbian_5.91_Rock64_Debian_buster_default_4.4.184.7z
-ARMBIAN_PKG_DEBIAN_STRETCH := Armbian_5.90_Rock64_Debian_stretch_default_4.4.182.7z
-
+ARMBIAN_PKG_UBUNTU := Armbian_21.02.1_Rock64_focal_current_5.10.12.img.xz
+ARMBIAN_PKG_UBUNTU_LEGACY := Armbian_21.02.1_Rock64_focal_legacy_4.4.213.img.xz
+ARMBIAN_PKG_DEBIAN := Armbian_21.02.1_Rock64_buster_current_5.10.12.img.xz
 ifneq ($(TRAVIS),)
-ARMBIAN_URL_BASE := https://dl.armbian.com/rock64/archive
+ARMBIAN_URL_BASE := https://imola.armbian.com/dl/rock64/archive
+# ARMBIAN_URL_BASE := https://archive.armbian.com/rock64/archive
+# ARMBIAN_URL_BASE := https://armbian.tnahosting.net/dl/rock64/archive
 else
 ARMBIAN_URL_BASE := https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/rock64/archive
 endif
@@ -38,7 +39,7 @@ ARMBIAN_PKG_%_CLEAN:
 	rm -f $(DL)/$($(@:_CLEAN=))
 
 ifeq ($(build_armbian),y)
-ARMBIAN_TARGETS := ARMBIAN_PKG_UBUNTU ARMBIAN_PKG_DEBIAN ARMBIAN_PKG_DEBIAN_STRETCH
+ARMBIAN_TARGETS := ARMBIAN_PKG_UBUNTU ARMBIAN_PKG_UBUNTU_LEGACY ARMBIAN_PKG_DEBIAN
 
 armbian: $(ARMBIAN_TARGETS)
 	( for pkg in $(foreach n,$^,$($(n))); do \

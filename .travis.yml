@@ -1,5 +1,5 @@
 #if: tag IS present
-dist: xenial
+dist: focal
 language: minimal
 sudo: required
 addons:
@@ -14,7 +14,7 @@ addons:
     - bsdtar
     - axel
 script:
-- make build_armbian=y build_libreelec=y build_archlinux=y build
+- make build_armbian=y build
 - ls -l output
 deploy:
   provider: releases
@@ -25,5 +25,5 @@ deploy:
   file_glob: true
   file: output/*.xz
   on:
-    repo: hanwckf/build-beikeyun
+    repo: qijianjun/build-beikeyun
     tags: true
