@@ -17,8 +17,7 @@ script:
 - ls -l output
 deploy:
   provider: releases
-  api_key:
-    secure: ${gh_token}
+  api_key: ${gh_token}
   skip_cleanup: true
   overwrite: true
   file_glob: true
