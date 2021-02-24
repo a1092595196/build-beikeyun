@@ -55,10 +55,11 @@ func_modify() {
 
 func_release() {
 	local dlpkg=$1
+	local shafile=${dlpkg}.sha
 	[ ! -f "$dlpkg" ] && echo "dlpkg not found!" && return 1
 	rm -rf ${tmpdir}
 	echo "Extract 7zpkg and checksum..."
-	7z x -y -o${tmpdir} $dlpkg >/dev/null && cd ${tmpdir} && ls -l && sha256sum -c sha256sum.sha && cd - > /dev/null || exit 1
+	7z x -y -o${tmpdir} $dlpkg >/dev/null && mv ${shafile} ${tmpdir} && cd ${tmpdir} && ls -l && sha256sum -c ${shafile} && cd - > /dev/null || exit 1
 
 	local dtb=$2
 	imgfile="$(ls ${tmpdir}/*.img)"
