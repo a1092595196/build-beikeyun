@@ -18,7 +18,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: "vyF0aNf2a7Q8PMen7ZEJvo+3Z4JOJWzZluFX3JDGXNKPSd5/EDqfcs1rjbMECN7uQha9VS3THywMVhlBxLnDNDAiUU+myMr3A9B1tmqMS6IbN6vlLstolmC6Clyyqm9G/veeAg0FfxGFi9+m3qeuXQs8g04Q/2swsiOZCOEZfgaBMIKEXi/byH2vMojhJKGWqZOkU9V7sq39jmugumrCnBLo1sSTyyDgg8TVlIoo5rK+a+/Jya0qj5Xip6PxEzVBT+pHC1SnAIfQ6Vw8rGP3JbGmvecWhAbDt9XmWlLAReqkrQPyPoz8HqYeeaylxtDYa0W4DRMyKMGBO5THoHpGmVSVQ+al/pccw84fLO60rsZ9gmupXBf/9XwtuAiaiUEDGHQJq0MVfdd+M//AIJD9efxUciEux2Be5h6Sc5G8pY7EbnBAGz7jLDUjejNeDpUKmfpPrGLVOLFdNS49+k2mEji94OhRRNayr2db3nOtJNiKGjWWr200/8bmmhSzKndQsLBxBza3wLK36Ka05aycUQkYr47HlnAnanNtJH0rMO3DFO2FZChR80Jw/VTZn8CdXHa8gp4nYuCXawBVomXcXXzpp1vH1pizNpGHsB3FEB7iX1RvBI6svBqLBVsEEPv4JWmRz3Xu9rL66uIKglhG2cKPJf9QReS9FEf93+QExfw="
+    secure: ${gh_token}
   skip_cleanup: true
   overwrite: true
   file_glob: true
