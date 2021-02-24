@@ -59,7 +59,7 @@ func_release() {
 	[ ! -f "$dlpkg" ] && echo "dlpkg not found!" && return 1
 	rm -rf ${tmpdir}
 	echo "Extract 7zpkg and checksum..."
-	7z x -y -o${tmpdir} $dlpkg >/dev/null && mv ${shafile} ${tmpdir} && cd ${tmpdir} && ls -l && sha256sum -c ${shafile} && cd - > /dev/null || exit 1
+	7z x -y -o${tmpdir} $dlpkg >/dev/null && mv ${shafile} ${tmpdir} && cd ${tmpdir} && ls -l && sha256sum -c $(basename $shafile) && cd - > /dev/null || exit 1
 
 	local dtb=$2
 	imgfile="$(ls ${tmpdir}/*.img)"
