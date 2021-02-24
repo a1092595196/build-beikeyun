@@ -45,7 +45,7 @@ ARMBIAN_TARGETS := ARMBIAN_PKG_UBUNTU ARMBIAN_PKG_UBUNTU_LEGACY ARMBIAN_PKG_DEBI
 armbian: $(ARMBIAN_TARGETS)
 	( for pkg in $(foreach n,$^,$($(n))); do \
 # 		sudo ./build-armbian.sh release $(DL)/$$pkg $(DTB_HEADLESS) ; \
-		echo 1 ; \
+		echo $$pkg ; \
 	done )
 
 armbian_clean: $(ARMBIAN_TARGETS:%=%_CLEAN)
