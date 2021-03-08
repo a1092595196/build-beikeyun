@@ -22,6 +22,8 @@ jobs:
 
     - name: Bilud Armbian
       run: |
+        pwd
+        ls -l
         make build_armbian=y build
         ls -l output
 
