@@ -38,11 +38,11 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
-    - name: Upload outut directory
+    - name: Upload output directory
       uses: actions/upload-artifact@main
       with:
         name: output
-        path: outut/
+        path: output/
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
