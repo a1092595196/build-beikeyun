@@ -2,7 +2,7 @@ DTB_HEADLESS := dtbs/5.x-bsp/headless/rk3328-beikeyun-1296mhz.dtb
 DTB_BOX := dtbs/4.4-bsp/box/rk3328-beikeyun.dtb
 
 DL := input
-WGET := wget -P -nv $(DL)
+WGET := wget -nv -P $(DL)
 AXEL := axel -a -n4 -o $(DL)
 
 OUTPUT := output
