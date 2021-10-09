@@ -23,8 +23,9 @@ ARMBIAN_PKG_UBUNTU_XFCE := Armbian_21.02.3_Rock64_focal_current_5.10.21_xfce_des
 ARMBIAN_PKG_UBUNTU := Armbian_21.02.3_Rock64_focal_current_5.10.21.img.xz
 ARMBIAN_PKG_DEBIAN_XFCE_LEGACY := Armbian_21.02.3_Rock64_buster_legacy_4.4.213_xfce_desktop.img.xz
 ARMBIAN_PKG_DEBIAN := Armbian_21.02.3_Rock64_buster_current_5.10.21.img.xz
-ifneq ($(TRAVIS),)
-ARMBIAN_URL_BASE := https://imola.armbian.com/dl/rock64/archive
+ifneq ($(CI),)
+ARMBIAN_URL_BASE := https://mirrors.dotsrc.org/armbian-dl/rock64/archive
+# ARMBIAN_URL_BASE := https://imola.armbian.com/dl/rock64/archive
 # ARMBIAN_URL_BASE := https://archive.armbian.com/rock64/archive
 # ARMBIAN_URL_BASE := https://armbian.tnahosting.net/dl/rock64/archive
 else
@@ -120,7 +121,7 @@ ALPINE_BRANCH := v3.10
 ALPINE_VERSION := 3.10.0
 ALPINE_PKG := alpine-minirootfs-$(ALPINE_VERSION)-aarch64.tar.gz
 
-ifneq ($(TRAVIS),)
+ifneq ($(CI),)
 ALPINE_URL_BASE := http://dl-cdn.alpinelinux.org/alpine/$(ALPINE_BRANCH)/releases/aarch64
 else
 ALPINE_URL_BASE := https://mirrors.tuna.tsinghua.edu.cn/alpine/$(ALPINE_BRANCH)/releases/aarch64
@@ -147,7 +148,7 @@ endif
 ifeq ($(build_archlinux),y)
 ARCHLINUX_PKG := ArchLinuxARM-aarch64-latest.tar.gz
 
-ifneq ($(TRAVIS),)
+ifneq ($(CI),)
 ARCHLINUX_URL_BASE := http://os.archlinuxarm.org/os
 else
 ARCHLINUX_URL_BASE := https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os
